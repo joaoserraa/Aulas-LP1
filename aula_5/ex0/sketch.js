@@ -1,38 +1,24 @@
-var x, y, t, vX, vY;
-// t = tamanho
 
+var cor;
 function setup() 
 {
-  createCanvas (windowWidth, windowHeight);
-
-  x = width/2;
-  y = height/2;
-  t = 100;
-  vX = 20;
-  vY = vX;
+  createCanvas (windowWidth, windowHeight); 
+  cor = 0;
 }
 
 
 function draw() 
 {
-  background (0, 50);
+  if (mouseX > width/2) cor++;
+  else cor --;
 
-if (x+t/2>width || x-t/2<0)
-{
-  vX = vX*-1;
-  fill (random(255), random(255), random(255));
-}
+  if (cor>255) cor = 255;
+  if (cor<0) cor = 0;
 
-if (y+t/2>height || y-t/2<0)
-{
-  vY = vY*-1;
-  fill (random(255), random(255), random(255));
-}
+  background(cor);
 
-  x = x + vX;
-  y = y + vY;
-  noStroke ();
-  ellipse (x, y, t, t);
+  stroke (255, 0 ,0);
+  line (width/2, 0 , width/2, height);
 }
 
 
